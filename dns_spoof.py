@@ -19,7 +19,7 @@ def process_packet(packet):
            del scapy_packet[scapy.UDP].len
            
            packet.set_payload(bytes(scapy_packet)) # Because we converted the packet to a scapy packet and now we are changing it to a normal string and then to the original packet entered in the function.
-           
+                                                   # set_payload method, in Python 3,expects a bytes object. In PYTHON2 it would be a str object
        packet.accept()
         
 queue = netfilterqueue.NetfilterQueue()

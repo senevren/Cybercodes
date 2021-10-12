@@ -27,9 +27,11 @@ queue.bind(0, process_packet)
 queue.run()
 
 # iptables uses three different chains: input, forward, and output.
+# forward chain is when packets come from a remote computer.
+# input/output chains is when packets come from our own local computer.
 # To trap the packets it is needed to configure the IP tables
 # iptables -I FORWARD -j NFQUEUE -- queue-num 0 (The packets only go to this chain if they are coming from a different computer
 # To test this on your own local computer use these commands;
 # iptables -I OUTPUT -j NFQUEUE -- queue-num 0 (The packets leaving the local computer)
 # iptables -I INPUT -j NFQUEUE -- queue-num 0 (The packets coming to the local computer (from the local computer))
-# #print(packet.get_payload())#get_payload is a method to see the actual content inside the packet itself
+# print(packet.get_payload())#get_payload is a method to see the actual content inside the packet itself

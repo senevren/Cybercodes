@@ -5,7 +5,7 @@ import urllib.parse as urlparse
 
 
 
-target_url = "http://shippinglot.com"
+target_url = "http://example.com"
 target_links =[]
 
 def extract_links_from(url):
